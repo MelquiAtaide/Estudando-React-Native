@@ -4,35 +4,29 @@ import { StyleSheet, View, Text, Image, ScrollView, FlatList } from 'react-nativ
 import { Button, Input } from '@rneui/base';
 import { Product } from '../../components/product';
 import { ProductAll } from '../../components/list';
+import { ProductCarrinho } from '../../components/categoraisList/carrinhoList';
 
-export interface HomeScreenProps {
+export interface CarrinhoScreenProps {
 }
 
-export function HomeScreen (props: HomeScreenProps) {
+export function CarrinhoScreen (props: CarrinhoScreenProps) {
     return (
         <View style={styles.container}>
-            <ScrollView>
+            <View style={styles.head}>
+                <Input placeholder='Buscar'
+                        leftIcon={{ name: 'search', color: 'white' }} 
+                        style={{height: 10,}}/>
+            </View>
+            {/* <ScrollView> */}
             <View style={styles.conteudo}>
-                <View style={styles.section}>
-                    <Text style={{marginLeft: 4, marginTop: 1, color: 'green'}}>Promoção</Text>
-                    <View style={styles.containerProdutos}>
-                        <Product/>
-                    </View>
-                </View>
-                <View style={styles.section}>
-                    <Text style={{marginLeft: 4, marginTop: 1, color: 'green'}}>Mais vendidos</Text>
-                    <View style={styles.containerProdutos}>
-                        <Product/>
-                    </View>
-                </View>
                 <View style={styles.sessaoDestaque}>
                     <Text style={{marginLeft: 4, marginTop: 1, color: 'green'}}>Destaques</Text>
                     <View style={styles.containerProdutos}>
-                        <ProductAll/>
+                        <ProductCarrinho/>
                     </View>
                 </View>
             </View>
-            </ScrollView>
+            {/* </ScrollView> */}
         </View>
     )
 }
