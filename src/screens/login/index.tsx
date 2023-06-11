@@ -5,24 +5,28 @@ import { Button, Input } from '@rneui/base';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
 import { useNavigation } from '@react-navigation/native';
-import { HomeScreen } from '../home';
-import { NavegacaoPrincipal } from '../../navegations/configuracoes';
 
 
 export interface LoginscreenProps {
 }
 
 export function LoginScreen (props: LoginscreenProps) {
-    // const navigation = useNavigation<any>();
+    const navigation = useNavigation<any>();
 
     const [ resultado, setResultado ] = useState<null|'logado'|'falhou'>(null);
 
     const handleLogin = ({email, senha}:any) => {
-        if (email.trim() == 'melqui@gmail.com' && senha.trim() == '12345678') 
-            setResultado('logado');
+        if (email.trim() == 'melqui@gmail.com' && senha.trim() == '12345678'){
             // navigation.navigate('Home');
-        else
+            // setResultado('logado');
+            navigation.reset({
+                index: 0,
+                routes: [{name: "Home"}]
+            })
+        }
+        else{
             setResultado('falhou')
+        }
         }
     
     
@@ -55,10 +59,10 @@ export function LoginScreen (props: LoginscreenProps) {
                                     containerStyle={{ borderRadius: 10, marginTop: 10 }} 
                                     onPress={() => handleSubmit()}/>
                         </View>
-                        <TouchableOpacity onPress={() => navigation.navigate('CadastroScreen')}>
-                        <Text style={styles.cadastrar}>
-                            Não possui conta? Clique aqui e cadastre-se
-                        </Text>
+                        <TouchableOpacity onPress={() => navigation.navigate("Cadastro")}>
+                            <Text style={styles.cadastrar}>
+                                Não possui conta? Clique aqui e cadastre-se
+                            </Text>
                         </TouchableOpacity>
                         { resultado == 'logado' && <Text style={styles.sucesso}>
                             Logado com sucesso

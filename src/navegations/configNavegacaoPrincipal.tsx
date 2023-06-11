@@ -26,32 +26,29 @@ function MyStack() {
         <ProdutosStack.Screen name="Home" component={HomeScreen} options={{
           headerRight: () => <Busca />
         }}/>
-        <ProdutosStack.Screen name="LoginScreen" component={LoginScreen} />
         <ProdutosStack.Screen name="Produto Screen" component={ProdutoScreen} />
-        <ProdutosStack.Screen name="CadastroScreen" component={CadastroScreen} />
       </ProdutosStack.Navigator>
     );
 }
 
 export function NavegacaoPrincipal() {
     return (
-        <NavigationContainer>
-            <Tab.Navigator screenOptions={{
-                headerShown: false,
-                tabBarActiveBackgroundColor: 'green',
-                tabBarInactiveBackgroundColor: '#9ACD32',
-                tabBarActiveTintColor: 'white'
-            }}>
-                <Tab.Screen name="HomeScreen" component={MyStack} options={{ 
-                    tabBarLabel:"Home",
-                    tabBarIcon:() => <MaterialIcons name="home" size={20}/>}}/>
-                <Tab.Screen name="Carrinho" component={CarrinhoScreen} options={{ 
-                    tabBarLabel:"Carrinho",
-                    tabBarIcon:() => <MaterialIcons name="shopping-cart" size={20}/>}}/>
-                <Tab.Screen name="Categorias" component={CategoriasScreen} options={{ 
-                    tabBarLabel:"Categorias",
-                    tabBarIcon:() => <MaterialIcons name="view-module" size={20}/>}}/>
-            </Tab.Navigator>
-      </NavigationContainer>
+      // removi o NavegationContainer daqui já que existe um no configNavegacaoLogin
+      <Tab.Navigator screenOptions={{
+        headerShown: false,
+        tabBarActiveBackgroundColor: 'green',
+        tabBarInactiveBackgroundColor: '#9ACD32',
+        tabBarActiveTintColor: 'white'
+      }}>
+        <Tab.Screen name="HomeScreen" component={MyStack} options={{ 
+          tabBarLabel:"Home",
+          tabBarIcon:() => <MaterialIcons name="home" size={20}/>}}/>
+        <Tab.Screen name="Carrinho" component={CarrinhoScreen} options={{ 
+          tabBarLabel:"Carrinho",
+          tabBarIcon:() => <MaterialIcons name="shopping-cart" size={20}/>}}/>
+        <Tab.Screen name="Categorias" component={CategoriasScreen} options={{ 
+          tabBarLabel:"Categorias",
+          tabBarIcon:() => <MaterialIcons name="view-module" size={20}/>}}/>
+      </Tab.Navigator>
     );
 }

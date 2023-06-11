@@ -10,7 +10,7 @@ export interface CadastroscreenProps {
 }
 
 export function CadastroScreen (props: CadastroscreenProps) {
-    // const [date, setDate] = useState(new Date())
+    const [selectedDate, setselectedDate] = useState(new Date())
     // const [open, setOpen] = useState(false)
         
     return (
@@ -36,17 +36,6 @@ export function CadastroScreen (props: CadastroscreenProps) {
                                     leftIcon={{ name: 'person', color: 'white' }}
                                     onChangeText={handleChange('idade')}/>
                                     { errors.email && <Text style={styles.falha}>{errors.idade}</Text>}
-                            {/* <DatePicker 
-                                modal open={open} 
-                                date={date}
-                                onConfirm={(date) => 
-                                    {setOpen(false)
-                                    setDate(date)
-                                }}
-                                onCancel={() => {
-                                    setOpen(false)
-                                }} /> */}
-
                             <Input placeholder='Digite seu e-mail'
                                 leftIcon={{ name: 'mail', color: 'white' }}
                                 onChangeText={handleChange('email')} />
@@ -103,7 +92,7 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     titulo: {
-        color: '#8B4513',
+        color: 'white',
         fontSize: 30,
         textAlign: 'center',
         marginBottom: 30,

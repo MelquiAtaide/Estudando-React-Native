@@ -7,13 +7,15 @@ import { HomeScreen } from './src/screens/home';
 import { Product } from './src/components/product';
 import { ProdutoScreen } from './src/screens/produto';
 import { CategoriasScreen } from './src/screens/categorias';
-import { NavegacaoPrincipal } from './src/navegations/configuracoes';
+import { NavegacaoPrincipal } from './src/navegations/configNavegacaoPrincipal';
+import { NavegacaoLogin } from './src/navegations/configNavegacaoLogin';
 
 
 export default function App() {
   return (
     // <LoginScreen/>
     // <CadastroScreen/>
-    <NavegacaoPrincipal/>
+    // <NavegacaoPrincipal/>
+    <NavegacaoLogin />
   );
 }
